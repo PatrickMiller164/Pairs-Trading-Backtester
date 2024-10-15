@@ -72,16 +72,16 @@ Ensure parameters are correct in _config.json_ file
     ```bash
     python3 main.py
 
-### Usage
+## Usage
 
-#### Creating your raw data file
+### Creating your raw data file
 The raw data file must be in .csv format. 
 The first column must contain the index of timestamps, with each subsequent column being a time series for an asset. 
 The last column must be the benchmark time series. 
 Here is an [example](https://docs.google.com/spreadsheets/d/1eKIyqQmjuK2n7H5-kF-pptQotW78esFFItPCo__xlIE/edit?usp=sharing) 
 of the format which raw data files need to be in before they are exported as a .csv file and placed in the _data_ directory.
 
-#### Updating the configuration file (_config.json_)
+### Updating the configuration file (_config.json_)
 Set data file names for existing raw data file, and for formatted data and cointegration data files (regardless of whether they have been created yet).
 - raw_data: your_raw_data_file.csv
 - formatted_data: formatted_data.csv
@@ -100,7 +100,7 @@ Set the portfolio parameter.
 Set results file name.
 - results_file: your_results.csv
 
-#### Running the application
+### Running the application
 The application will prompt you to enter the in-sample period unit. Is the in-sample period to be 
 measured in months or years? 
 
