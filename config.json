@@ -1,0 +1,17 @@
+{
+    "raw_data": "crypto raw data.csv",
+    "formatted_data": "crypto price data.csv",
+    "cointegration_data": "crypto stat results.csv",
+
+    "strategy": {
+        "entry_threshold": 2,
+        "exit_threshold": 0.5,
+        "limit": 4,
+        "size": 125,
+        "increment": 0.25
+    },
+    "portfolio": {
+        "initial_cash": 1000
+    },
+    "results_file": "results.csv"
+}
