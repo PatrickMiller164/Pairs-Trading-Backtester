@@ -830,6 +830,5 @@ class Backtester:
 
         # Sort and display the output results
         self.output = self.output.sort_values(by='Return %', ascending=False).reset_index(drop=True)
-        print(self.output)
         file_path = os.path.join(os.getcwd(), 'output', 'results')
         self.output.to_csv(file_path, index=True)
