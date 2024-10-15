@@ -30,7 +30,7 @@ Rolling Window Testing: The strategy also conducts periodic cointegration tests 
 
 ### Requirements
 
-- Python 3.7 or higher
+- Python 3
 - Pandas
 - NumPy
 - Statsmodels
@@ -120,17 +120,5 @@ The application will match the inputted in-sample period with a list of asset pa
 Finally, the application will execute the trading strategy for each cointegrated pair over the out-of-sample period.
 The results will be saved in the _output_ directory in the repository.
 
-#### Example Workflow
-
-1. Set parameters for the file names, the trading strategy, and the portfolio in the _config.json_ file.
-2. Ensure at least the raw data file exists in the _data_ directory
-3. Run the _main.py_ file
-4. Specify the in-sample period unit: _monthly_ or _yearly_
-5. Load the formatted data and cointegration results files. If they don't exist, process the raw data file first.
-6. Define the in-sample and out-of-sample periods from the list of dates provided.
-7. Execute the backtest for asset pairs which were cointegrated for the in-sample period, over the out-of-sample period.
-8. Review the output metrics and performance summary in the results.csv file, found in the _output_ directory.
-
-# License
-
+## License
 This project is licensed under the MIT License - see the LICENSE file for details.
