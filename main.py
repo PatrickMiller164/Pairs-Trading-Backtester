@@ -1,4 +1,5 @@
 import os
+import json
 import pandas as pd
 from data_processing import prepare_data, establish_in_sample_period_unit, cointegration_testing
 from backtester import Backtester, DataLoader, Portfolio, Strategy
@@ -16,6 +17,22 @@ def file_exists(file_name: str):
     """
     file_path = os.path.join(os.getcwd(), 'data', file_name)
     return os.path.exists(file_path)
+
+
+def load_config(file_name: str):
+    """
+    Load configuration from a JSON file.
+
+    Parameters:
+        file_name (str): The path to the JSON configuration file.
+
+    Returns:
+        dict: A dictionary containing the configuration parameters.
+    """
+    file_path = os.path.join(os.getcwd(), file_name)
+    with open(file_path, 'r') as config_file:
+        config_x = json.load(config_file)
+    return config_x
 
 
 def run_full_process(raw_data_file: str, formatted_data_file: str, results_file: str, strategy_x: Strategy,
@@ -70,14 +87,26 @@ Run the full data processing and backtesting pipeline.
 
 # Entry point for running the full process
 if __name__ == "__main__":
-    # Define file names for raw data, formatted data, and results
-    raw_data = 'crypto raw data.csv'
-    formatted_data = 'crypto price data.csv'
-    cointegration_data = 'crypto stat results.csv'
+    config = load_config('config.json')
 
-    # Initialise strategy and portfolio parameters
-    strategy = Strategy(entry_threshold=2, exit_threshold=0.5, limit=4, size=125, increment=0.25)
-    portfolio = Portfolio(initial_cash=1000)
+    # Initialise parameters from config
+    raw_data = config['raw_data']
+    formatted_data = config['formatted_data']
+    cointegration_data = config['cointegration_data']
+
+    strategy_config = config['strategy']
+    strategy = Strategy(
+        entry_threshold=strategy_config['entry_threshold'],
+        exit_threshold=strategy_config['exit_threshold'],
+        limit=strategy_config['limit'],
+        size=strategy_config['size'],
+        increment=strategy_config['increment']
+    )
+
+    portfolio_config = config['portfolio']
+    portfolio = Portfolio(
+        initial_cash=portfolio_config['initial_cash']
+    )
 
     # Run the full process
     run_full_process(raw_data, formatted_data, cointegration_data, strategy, portfolio)
