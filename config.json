@@ -1,7 +1,7 @@
 {
-    "raw_data": "crypto raw data.csv",
-    "formatted_data": "crypto price data.csv",
-    "cointegration_data": "crypto stat results.csv",
+    "raw_data": "equities raw data.csv",
+    "formatted_data": "equities price data.csv",
+    "cointegration_data": "equities stat results.csv",
 
     "strategy": {
         "entry_threshold": 2,
