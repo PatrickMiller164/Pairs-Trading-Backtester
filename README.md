@@ -38,31 +38,51 @@ Rolling Window Testing: The strategy also conducts periodic cointegration tests 
 
 ### Installation
 
-1. Clone the repository:
+1. Change directory to where you want to store the repository:
+    ```bash
+   cd /path/to/your/directory
+
+2. Clone the repository:
    ```bash
    git clone https://github.com/PatrickMiller164/Pairs-Trading-Backtester.git
-   cd pairs-trading-backtester
+   
+3. Change directory to the repository:
+   ```bash
+    cd Pairs-Trading-Backtester
 
-2. Install the required libraries (if using a virtual environment):
-	```bash
-	pip install -r requirements.txt
+4. Create a virtual environment:
+    ```bash
+   python3 -m venv venv
+
+5. Activate virtual environment:
+    ```bash
+   source venv/bin/activate
+
+6. Install the required libraries:
+    ```bash
+   pip3 install -r requirements.txt
+
+7. Create _data_ and _output_ directories:
+    ```bash
+   mkdir data
+   mkdir output
 
 ### Usage
 
-#### Create your raw data file
+#### 1. Create your raw data file
 The raw data file must be in .csv format. 
 The first column must contain the index of timestamps, with each subsequent column being time series data for an asset. 
 The last column must be the benchmark time series. 
 Click this [link](https://docs.google.com/spreadsheets/d/1eKIyqQmjuK2n7H5-kF-pptQotW78esFFItPCo__xlIE/edit?usp=sharing) 
 to view the format which raw data files need to be in.
 
-#### Create necessary directories if necessary
+#### 2. Create necessary directories if necessary
 Ensure you have created a _data_ directory and an _output_ directory in 
 the repository. Raw data, formatted data, and cointegration results data files will be stored in the _data_ directory, 
 while the results from the backtest will be saved in the _output_ directory. 
 When first running the program, ensure the raw data file can be found in the _data_ directory.
 
-#### Check and update the configuration file (config.json)
+#### 3. Check and update the configuration file (config.json)
 Set data file names for existing raw data file, and for formatted data and cointegration data files, regardless of whether they exist.
 - raw_data: your_raw_data_file.csv
 - formatted_data: formatted_data.csv
@@ -81,10 +101,8 @@ Set the portfolio parameter.
 Set results file name.
 - results_file: your_results.csv
 
-#### Run the application
-To run the application, execute the following command:
-
-	python main.py
+#### 4. Run the application:
+    python3 main.py
 
 The application will prompt you to enter the in-sample period unit. Is the in-sample period to be 
 measured in months or years? 
@@ -103,9 +121,9 @@ With pairs trading, it is recommended to start the out-of-sample period right af
 The application will match the in-sample period start- and end-dates with the list of asset pairs which are said to be cointegrated (p-value < 0.05) for that in-sample period in the cointegration results file.
 
 Finally, the application will execute the trading strategy for each cointegrated pair over the out-of-sample period.
-The results will be printed in the terminal, as well as being saved in the _output_ directory in the repository.
+The results will be saved in the _output_ directory in the repository.
 
-#### Example Workflow
+#### 5. Example Workflow
 
 1. Set parameters for the file names, the trading strategy, and the portfolio in the config.json file.
 2. Ensure at least the raw data file exists in the 'data' directory
