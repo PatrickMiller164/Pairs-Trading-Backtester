@@ -82,7 +82,7 @@ Here is an [example](https://docs.google.com/spreadsheets/d/1eKIyqQmjuK2n7H5-kF-
 of the format which raw data files need to be in before they are exported as a .csv file and placed in the _data_ directory.
 
 ### Updating the configuration file (_config.json_)
-Set data file names for existing raw data file, and for formatted data and cointegration data files (regardless of whether they have been created yet).
+Set data file names for the existing raw data file, and for formatted data and cointegration data files (regardless of whether they have been created yet).
 - raw_data: your_raw_data_file.csv
 - formatted_data: formatted_data.csv
 - cointegration_data: cointegration_data.csv
@@ -92,7 +92,7 @@ Set the strategy parameters. Default parameters are as follows:
 - exit_threshold: 0.5 (profit-taking threshold, open position is closed when z-score falls below this level)
 - limit: 4 (stop-loss threshold, open position is closed when z-score rises above this level)
 - size: 125 (total amount of cash used to the long position and short position of a trade)
-- increment: 0.05 (minimum deviation needed by z-score needed from last open trade before another trade can be placed)
+- increment: 0.05 (minimum z-score deviation needed from last opened trade before another trade can be placed)
 
 Set the portfolio parameter.
 - initial_cash: 1000 (initial amount of cash in portfolio, equal to initial portfolio value)
