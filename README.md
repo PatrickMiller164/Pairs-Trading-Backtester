@@ -1,5 +1,12 @@
 # Pairs Trading Backtester
 
+## Table of Contents
+- [Overview](#overview)
+- [How Pairs Trading Works](#how-pairs-trading-works)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [License](#license)
+
 ## Overview
 
 This repository provides a comprehensive framework for backtesting statistical arbitrage pairs trading strategies. 
